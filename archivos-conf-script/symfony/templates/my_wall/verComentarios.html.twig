@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyWall{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; width: 80%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .coment{
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 2px 2px 8px black;
+        padding: 20px;
+        margin: 10px auto;
+        position: relative;
+        background-color: antiquewhite;
+    }
+    .coment a{
+        position: absolute;
+        top: 10px;
+        right: 30px;
+    }
+    .listaRespuestas{
+        width: 95%;
+        margin-left: auto;
+        padding: 0;
+    }
+    .cabecera-comentarios{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin: 20px auto;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 2px 2px 8px black;
+        background-color: #F5F5F5;
+    }
+    .cabecera-comentarios p{
+        text-align: justify;
+    }
+    .cabecera-comentarios h2{
+        text-align: center;
+    }
+</style>
+
+<div class="example-wrapper body-comentarios">
+
+    <div class="cabecera-comentarios">
+        <h2><i><b>{{ publicacion.titulo }}</b></i></h2>
+        <p>{{ publicacion.contenido }}</p>
+    </div>
+
+    <div>
+        <h4><b>Comentarios de la publicacion</b></h4>
+        {% for c in comentarios %}
+            <div class="coment">
+                <h4>- Comentario de <i><b>{{ c.usuario.username }}</b></i></h4>
+                <p>{{ c.contenidoCom }}</p>
+                <a href="{{ path('app_comentar_comentario', {'idPub':publicacion.id, 'id':c.id}) }}">Responder</a>
+                <h4 class="listaRespuestas"><i><u>Respuestas al comentario</u></i></h4>
+
+                <ul class="listaRespuestas">
+                {% for r in respuestasAComentarios %}
+                    {% if r.comentarioResp.id == c.id %}
+                        <li>
+                            <p>Respuesta de <i><b>{{ r.usuario.username }}</b></i></p>
+                            <p>{{ r.contenidoCom }}</p>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+
+            </div>
+        {% else %}
+                <p>No hay comentarios en esta publicacion</p>
+        {% endfor %}        
+    </div>
+
+</div>
+{% endblock %}

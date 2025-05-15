@@ -1,0 +1,268 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 90%;
+    margin: 20px auto;
+    background-color: rgb(222, 222, 222);
+}
+
+/*LOGIN*/
+.body-login{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn{
+    margin-top: 20px;
+}
+
+.form-login{
+    width: 80%;
+    margin: 20px auto;
+    padding: 40px 0;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px black;
+    background-color: antiquewhite;
+}
+
+.form-login input{
+    width: 50% !important;
+    margin: 20px auto;
+}
+
+.aIndex{
+    color: white;
+    text-decoration: none;
+}
+
+/*MENÚ NAV*/
+.menu{
+    background-color: black !important;
+    color: white !important;
+    border-radius: 15px;
+}
+
+.menu li a{
+    color: white !important;
+    transition: all 0.8s ease;
+    border-radius: 15px;
+    margin: 5px 5px;
+}
+
+.menu li a:hover{
+    background-color: rgb(222, 222, 222);
+    color: black !important;
+}
+
+/* MIS PUBLICACIONES */
+.pubYComent{
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px black;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+}
+.pubYComent .as{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pubYComent img{
+    max-width: 60%;
+    align-self: center;
+    margin: 20px auto;
+}
+
+.section .contenedora-aside-publicaciones{
+    margin: 50px auto;
+    position: relative;
+}
+
+.aside{
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px black;
+    padding: 10px 20px;
+    width: 18%;
+    background-color: antiquewhite;
+    position: absolute;
+    left: 0;
+}
+
+.user{
+    position: relative;
+    margin: 10px auto;
+}
+
+.aUser{
+    position: absolute;
+    right: 0;
+}
+
+.h1Index{
+    margin: 50px;
+    text-align: center;
+}
+
+.publicaciones{
+    margin-top: 0 !important;
+    position: absolute;
+    right: 0;
+}
+
+/* CREAR PUBLICACION */
+
+.body-crearPublicacion textArea{
+    width: 100%;
+    height: 200px;
+}
+
+.body-crearPublicacion h3{
+    text-align: center;
+}
+
+.body-crearPublicacion form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 5px 5px 15px black;
+    background-color: antiquewhite;
+    margin-top: 20px;
+}
+
+.labelImg{
+    margin-top: 20px;
+}
+
+/* VER COMENTARIOS DE PUBLICACION */
+
+.coment{
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px black;
+    padding: 20px;
+    margin: 10px auto;
+    position: relative;
+    background-color: antiquewhite;
+}
+.coment a{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+.listaRespuestas{
+    width: 95%;
+    margin-left: auto;
+    padding: 0;
+}
+.cabecera-comentarios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 2px 2px 8px black;
+    background-color: #F5F5F5;
+}
+.cabecera-comentarios p{
+    text-align: justify;
+}
+.cabecera-comentarios h2{
+    text-align: center;
+}
+
+/* COMENTAR PUBLICACION */
+
+.body-comentar h3{
+    margin: 20px auto;
+}
+.formulario-comentar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 5px 5px 15px black;
+    background-color: antiquewhite;
+    margin-top: 20px;
+}
+.formulario-comentar form{
+    width: 100%;
+}
+.formulario-comentar textarea{
+    width: 100%;
+    height: 200px;
+}
+
+/* RESPONDER A COMENTARIO */
+
+.publicacionResponderComentario{
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px black;
+    padding: 20px;
+    margin: 10px auto;
+    background-color: antiquewhite;
+}
+.comentarioResponderComentario{
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px black;
+    padding: 20px;
+    margin: 10px auto;
+    background-color: antiquewhite;
+}
+.required{
+    display: none;
+}
+form button{
+    margin: 20px auto;
+}
+.body-responder-comentario form{
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px black;
+    padding: 20px;
+}
+
+/* MURO AGENO */
+
+.body-muro-ajeno h1{
+    text-align: center;
+    margin: 20px auto;
+}
+.pubYComent-ajeno{
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px black;
+    padding: 20px;
+    margin: 10px auto;
+    background-color: antiquewhite;
+    width: 80%;
+}
+.pubYComent-ajeno .as{
+    display: flex;
+    justify-content: space-around;
+}

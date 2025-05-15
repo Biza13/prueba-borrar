@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyWall{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin-left: auto; width: 80%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .body-muro-ajeno h1{
+        text-align: center;
+        margin: 20px auto;
+    }
+    .pubYComent-ajeno{
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 2px 2px 8px black;
+        padding: 20px;
+        margin: 10px auto;
+        background-color: antiquewhite;
+        width: 80%;
+    }
+    .pubYComent-ajeno .as{
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+<section class="body-muro-ajeno">
+
+    <h1>Este es el muro de {{ user.username }}</h1>
+
+    {% for p in publicaciones %}
+            <div class="pubYComent-ajeno">
+                <h2>{{ p.titulo }}</h2>
+                <p>{{ p.contenido }}</p>
+                <div class="as">
+                    <a href="{{ path('app_ver_comentarios', {'id':p.id}) }}">Ver comentarios</a>
+                    <a href="{{ path('app_comentar', {'id':p.id}) }}">Comentar</a>
+                </div>
+            </div>
+        {% else %}
+            <h2>No hay publicaciones</h2>
+        {% endfor %}
+
+</section>
+{% endblock %}

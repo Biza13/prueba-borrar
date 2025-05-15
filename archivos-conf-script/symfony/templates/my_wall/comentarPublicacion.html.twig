@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyWall{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; width: 60%; font: 18px/1.5 sans-serif; text-align: center; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .body-comentar h3{
+        margin: 20px auto;
+    }
+    .formulario-comentar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+        padding: 20px;
+        box-shadow: 5px 5px 15px black;
+        background-color: antiquewhite;
+        margin-top: 20px;
+    }
+    .formulario-comentar form{
+        width: 100%;
+    }
+    .formulario-comentar textarea{
+        width: 100%;
+        height: 200px;
+    }
+</style>
+
+<div class="body-comentar">
+    <div class="example-wrapper">
+    
+        <h3>Publicacion: <i><b>{{ publicacion.titulo }}</b></i></h3>
+
+        <div>
+        {% for mensaje in app.flashes('mensaje') %}
+            {{ mensaje}}
+        {% endfor %}
+    </div>
+    <div class="formulario-comentar">
+        {#  asi pones el formulario completo #}
+        {# {{ form(form) }} #}
+    
+        {# asi lo que quieras del formulario #}
+        {{ form_start(form) }}
+            {{ 'Comentario' }}
+            {{ form_row(form.contenidoCom) }}
+        {{ form_end(form) }}
+    </div>
+    
+    </div>
+    
+</div>
+{% endblock %}

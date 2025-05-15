@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyWall{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; width: 80%; font: 18px/1.5 sans-serif; text-align: center; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .publicacionResponderComentario{
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 2px 2px 8px black;
+        padding: 20px;
+        margin: 10px auto;
+        background-color: antiquewhite;
+    }
+    .comentarioResponderComentario{
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 2px 2px 8px black;
+        padding: 20px;
+        margin: 10px auto;
+        background-color: antiquewhite;
+    }
+    .required{
+        display: none;
+    }
+    form button{
+        margin: 20px auto;
+    }
+    .body-responder-comentario form{
+        margin: 0 auto;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        background-color: antiquewhite;
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 2px 2px 8px black;
+        padding: 20px;
+    }
+</style>
+
+<div class="example-wrapper body-responder-comentario">
+    <div class="publicacionResponderComentario">
+        <h2><u>Publicacion:</u></h2>
+        <h3><i>{{ publicacion.titulo }}</i></h3>
+        <p>{{ publicacion.contenido }}</p>
+    </div>
+    <div class="comentarioResponderComentario">
+        <h2><u>Comentario al que quieres responder:</u></h2>
+        <p>{{ comentario.contenidoCom }}</p>
+    </div>
+    
+    {# Mensaje de exito #}
+    {% for mensaje in app.flashes('mensaje') %}
+        {{ mensaje}}
+    {% endfor %}
+
+    {# renderizado del formulario #}
+    {{ form_start(form) }}
+        {{ 'Contenido' }}
+        {{ form_row(form.contenidoCom) }}
+    {{ form_end(form) }}
+
+</div>
+{% endblock %}
