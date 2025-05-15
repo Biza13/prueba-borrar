@@ -79,7 +79,7 @@ jobs:
 
       - name: Ejecutar script como root en EC2
         run: |
-          ssh -i deploy_key.pem -o StrictHostKeyChecking=no ec2-user@${{ needs.despliegue.outputs.instance_public_ip }} \vale 
+          ssh -i deploy_key.pem -o StrictHostKeyChecking=no ec2-user@${{ needs.despliegue.outputs.instance_public_ip }} \
             "sudo bash /home/ec2-user/archivos-conf-script/deploy-docker-compose.sh"
 
       - name: Borrar archivo private key
