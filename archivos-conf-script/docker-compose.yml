@@ -11,13 +11,14 @@ services:
     volumes:
       - ./httpd.conf:/usr/local/apache2/conf/httpd.conf  
       - ./cert-begona:/usr/local/apache2/certs/begona:ro 
+      - ./symfony/:/var/www/html/symfony/
     networks:
       - app-network
     depends_on:
       - tomcat
     restart: unless-stopped  
 
-  tomcat:
+  php:
     image: php:8.2-fpm
     container_name: php
     ports:
