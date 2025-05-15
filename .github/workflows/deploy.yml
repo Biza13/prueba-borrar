@@ -71,6 +71,7 @@ jobs:
 
       - name: Subir carpeta con docker-compose y archivos necesarios
         run: |
+          sleep 30
           scp -i deploy_key.pem -r -o StrictHostKeyChecking=no archivos-conf-script ec2-user@${{ needs.despliegue.outputs.instance_public_ip }}:/home/ec2-user/archivos-conf-script
 
       - name: Subir carpeta con certificados de bego.work.gd
