@@ -1,0 +1,5 @@
+FROM httpd:2.4
+
+COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY ./cert-begona /usr/local/apache2/certs/begona
+COPY ./symfony/public/ /var/www/html/symfony/public/

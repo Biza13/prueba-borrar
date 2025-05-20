@@ -1,17 +1,18 @@
 services:
   apache:
     #el build: .  seria para hacerlo desde un dockerfile
-    #build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.apache
     #y asi simplemente coges una imagen ya hecha de dockerhub
-    image: httpd:2.4
+    #image: httpd:2.4
     container_name: apache
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf  
-      - ./cert-begona:/usr/local/apache2/certs/begona:ro 
-      - ./symfony/:/var/www/html/symfony/
+    #volumes:
+    #  - ./httpd.conf:/usr/local/apache2/conf/httpd.conf  
+    #  - ./cert-begona:/usr/local/apache2/certs/begona:ro 
     networks:
       - app-network
     depends_on:
@@ -19,12 +20,13 @@ services:
     restart: unless-stopped  
 
   php:
-    image: php:8.2-fpm
+    #image: php:8.2-fpm
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: php
     ports:
       - "9000:9000"
-    volumes:
-      - ./symfony/:/var/www/html/symfony/
     networks:
       - app-network
 
